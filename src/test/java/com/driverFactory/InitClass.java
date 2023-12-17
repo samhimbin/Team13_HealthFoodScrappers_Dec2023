@@ -6,16 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-
-import com.RecipeFoodCategory.Lunch;
 import com.Utilities.LoggerLoad;
 import com.Utilities.PropertyReader;
 
 public class InitClass {
 	// we will give the initialization of web driver + initializing objects
 	public static WebDriver driver;
-	
-	//public static Lunch lunch;
+
+	// public static Lunch lunch;
 
 	@BeforeClass
 	public void beforeclass() throws IOException {
@@ -27,8 +25,6 @@ public class InitClass {
 	public static void createPageObject() {
 		LoggerLoad.info("Creating Objects:");
 		// All the page objects will be called here
-		
-		
 
 	}
 
