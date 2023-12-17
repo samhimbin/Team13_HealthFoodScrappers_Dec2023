@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import com.driverFactory.InitClass;
 
 
-public class TakeScreenshotClass {
+public class TakeScreenshotClass extends InitClass{
 	@Test
 	public static void takescreenshot() throws IOException {
 		// To take the screenshot
