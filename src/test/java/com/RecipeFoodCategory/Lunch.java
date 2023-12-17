@@ -49,7 +49,7 @@ public class Lunch {
 	}
 	
 	public void getAll_recipesLink() {
-		  ArrayList<String> links = new ArrayList<>();
+		  ArrayList<String> links = new ArrayList<String>();
 
 		  // loop through raw_recipes to fill the links array list
 		  for (WebElement e : raw_recipes)
@@ -57,7 +57,7 @@ public class Lunch {
 			  System.out.println(e.getAttribute("href"));
 		       links.add(e.getAttribute("href"));
 		  }
-		  links.stream().forEach(l->System.out.println(l));
+		 
 		  
 
 		// List<WebElement> raw_ids = driver.findElements((By.className("rcc_rcpno")));
