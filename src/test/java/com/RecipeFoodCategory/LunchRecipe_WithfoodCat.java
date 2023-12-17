@@ -24,7 +24,7 @@ public class LunchRecipe_WithfoodCat extends InitClass{
 			}
 
 			@Test
-			public void scrapeDinnerRecipe() throws InterruptedException, IOException {
+			public void scrapelunchRecipe() throws InterruptedException, IOException {
 
 				// list containing filters for accepted FoodCategory/Recipe category and Morbid
 				// condition
@@ -44,7 +44,7 @@ public class LunchRecipe_WithfoodCat extends InitClass{
 				try {
 					excelReader.setCellData("LunchFoodCatRecipes", 0, 0, "Recipe Id");
 					excelReader.setCellData("LunchFoodCatRecipes", 0, 1, "Recipe Name");
-					excelReader.setCellData("LunchFoodCatRecipes", 0, 2, "Recipe Category(Breakfast/lunch/snack/dinner)");
+					excelReader.setCellData("LunchFoodCatRecipes", 0, 2, "Recipe Category(Breakfast/lunch/snack/lunch)");
 					excelReader.setCellData("LunchFoodCatRecipes", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
 					excelReader.setCellData("LunchFoodCatRecipes", 0, 4, "Ingredients");
 					excelReader.setCellData("LunchFoodCatRecipes", 0, 5, "Preparation Time");
@@ -61,7 +61,7 @@ public class LunchRecipe_WithfoodCat extends InitClass{
 				}
 				Thread.sleep(2);
 
-				// Search dinner recipe from recipe search box on Home page
+				// Search lunch recipe from recipe search box on Home page
 				WebElement recipeSearchBox = driver.findElement(By.id("ctl00_txtsearch"));
 				WebElement searchButton = driver.findElement(By.id("ctl00_imgsearch"));
 
@@ -69,8 +69,8 @@ public class LunchRecipe_WithfoodCat extends InitClass{
 				searchButton.click();
 				Thread.sleep(1);
 
-				// Search results for dinner recipe
-				WebElement searchResult = driver.findElement(By.xpath("//a[@href='recipes-for-indian-dinner-939']"));
+				// Search results for lunch recipe
+				WebElement searchResult = driver.findElement(By.xpath("//a[@href='recipes-for-indian-lunch-926']"));
 				searchResult.click();
 				Thread.sleep(1);
 
@@ -93,7 +93,7 @@ public class LunchRecipe_WithfoodCat extends InitClass{
 					pagination.click();
 					Thread.sleep(1000);
 
-					// get list of all dinner recipes cards in current page
+					// get list of all lunch recipes cards in current page
 					List<WebElement> allRecipeCards = driver.findElements(By.xpath("//article[@class='rcc_recipecard']"));
 					int totalRecipeCard = allRecipeCards.size();
 					System.out.println("Total recipe cards in page" + page + ":" + totalRecipeCard);
@@ -127,7 +127,7 @@ public class LunchRecipe_WithfoodCat extends InitClass{
 
 //					// write recipe data in xlsheet
 
-						// Check the tags text for dinner recipes, write only in excel , if present
+						// Check the tags text for lunch recipes, write only in excel , if present
 
 						if (tagstext.contains(RecipeCategory)) {
 
@@ -174,7 +174,7 @@ public class LunchRecipe_WithfoodCat extends InitClass{
 							// System.out.println("--" + tagstext + "--");
 							System.out.println("Recipe ID:------ " + recipeId);
 							System.out.println("Recipe Name:----- " + recipeName);
-							System.out.println("Recipe Category(Breakfast/lunch/snack/dinner):----- ");
+							System.out.println("Recipe Category(Breakfast/lunch/snack/lunch):----- ");
 							System.out.println("Food Category(Veg/non-veg/vegan/Jain):----- ");
 							System.out.println("Ingredients :------ " + ingredients);
 							System.out.println("Prepartion Time:------" + prepartionTime);
@@ -186,7 +186,7 @@ public class LunchRecipe_WithfoodCat extends InitClass{
 						}
 						cell++;
 						System.out.println("*****************************************************************");
-						driver.navigate().to("https://www.tarladalal.com/recipes-for-indian-dinner-939?pageindex=" + page);
+						driver.navigate().to("https://www.tarladalal.com/recipes-for-indian-lunch-926?pageindex=" + page);
 					}
 				}
 			}
