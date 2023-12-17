@@ -25,11 +25,6 @@ public class InitClass {
 	public static void createPageObject() {
 		LoggerLoad.info("Creating Objects:");
 		// All the page objects will be called here
-<<<<<<< HEAD
-		
-=======
->>>>>>> 3ed9a5a863dfdbf45dd167578f4360308e32c8eb
-
 		
 	}
 
