@@ -1,22 +1,7 @@
 package com.RecipeFoodCategory;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import com.Utilities.LoggerLoad;
-
 public class Lunch {
+<<<<<<< HEAD
 	
 	public Lunch(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -62,4 +47,7 @@ public class Lunch {
 
 		// List<WebElement> raw_ids = driver.findElements((By.className("rcc_rcpno")));
 }
+=======
+
+>>>>>>> 3ed9a5a863dfdbf45dd167578f4360308e32c8eb
 }
