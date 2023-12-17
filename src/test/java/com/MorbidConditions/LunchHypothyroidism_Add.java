@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import com.TestData.Hypothyroidism_AddCheckList;
+import com.TestData.Hypothyroidism_IngredientsCheckList;
 import com.TestData.categoryList;
 import com.Utilities.ExcelReader;
 import com.driverFactory.InitClass;
@@ -108,10 +108,10 @@ public class LunchHypothyroidism_Add extends InitClass{
 				Thread.sleep(1000);
 				
 				//check for Hypothyroidism ingredient Add list in the recipes
-				boolean addList = Hypothyroidism_AddCheckList.AddIngredient(ingredients);
+				String addList = Hypothyroidism_IngredientsCheckList.AddIngredient(ingredients);
 
 				System.out.println(addList);
-				if (addList) {
+				if (addList!=null) {
 
 					System.out
 							.println("navigate back*****************************************************************");
