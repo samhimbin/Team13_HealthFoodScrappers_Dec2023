@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.MorbidConditions.LunchHyperthyroidism_Eliminate">
+      <class name="com.MorbidConditions.Lunch_Hypothyroidism">
         <methods>
           <include name="scrapeLunchRecipe"/>
           <include name="beforeclass"/>
           <include name="beforemethod"/>
           <include name="afterclass"/>
         </methods>
-      </class> <!-- com.MorbidConditions.LunchHyperthyroidism_Eliminate -->
+      </class> <!-- com.MorbidConditions.Lunch_Hypothyroidism -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

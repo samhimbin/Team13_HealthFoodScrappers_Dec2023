@@ -20,7 +20,7 @@ import com.driverFactory.InitClass;
 public class HypothyroidismAllergy extends InitClass{
 
 	@Test
-	public void scrapeDinnerRecipe() throws InterruptedException, IOException {
+	public void scrapeLunchRecipe() throws InterruptedException, IOException {
 
 		// declaring variables
 		String prepartionTime = null;
@@ -42,24 +42,24 @@ public class HypothyroidismAllergy extends InitClass{
 
 		// xlsheet path
 
-		String path = ".\\src\\test\\resources\\TestData\\MorbidConditionTestData.xlsx";
+		String path = ".\\src\\test\\resources\\TestData\\MorbidTestData.xlsx";
 		ExcelReader excelReader = new ExcelReader(path);
 
-		// write headers for Diabetes recipe with allergy
+		// write headers for Hypothyroidism recipe with allergy
 		try {
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 0, "Recipe Id");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 1, "Recipe Name");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 2,
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 0, "Recipe Id");
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 1, "Recipe Name");
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 2,
 					"Recipe Category(Breakfast/lunch/snack/dinner)");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 4, "Ingredients");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 5, "Preparation Time");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 6, "Cooking Time");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 7, "Preparation method");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 8, "Nutrient values");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 9,
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 4, "Ingredients");
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 5, "Preparation Time");
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 6, "Cooking Time");
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 7, "Preparation method");
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 8, "Nutrient values");
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 9,
 					"Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
-			excelReader.setCellData("Diabetes_Eliminate_Allergies", 0, 10, "Recipe URL");
+			excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", 0, 10, "Recipe URL");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -67,15 +67,18 @@ public class HypothyroidismAllergy extends InitClass{
 		}
 		Thread.sleep(2);
 
-		// Click on recipe tag and select diabetic recipe
+		// Click on recipe tag and select hypothyroidism recipe
 
-		WebElement recipeTag = driver.findElement(By.className("sel"));
-		recipeTag.click();
+		WebElement recipeSearchBox = driver.findElement(By.id("ctl00_txtsearch"));
+		WebElement searchButton = driver.findElement(By.id("ctl00_imgsearch"));
+
+		recipeSearchBox.sendKeys("Hypothyroidism");
+		searchButton.click();
 		Thread.sleep(1);
 
-		// Diabetic recipe linktab
-		WebElement diabeticRecipeList = driver.findElement(By.id("ctl00_cntleftpanel_ttlhealthtree_tvTtlHealtht46"));
-		diabeticRecipeList.click();
+		// Hypothyroidism recipe linktab
+		WebElement HypothyroidismRecipeList = driver.findElement(By.xpath("//a[@href='recipes-for-hypothyroidism-veg-diet-indian-recipes-849']"));
+		HypothyroidismRecipeList.click();
 		Thread.sleep(1);
 
 		// Pagination- navigating through all recipe pages
@@ -136,7 +139,7 @@ public class HypothyroidismAllergy extends InitClass{
 				// Fetching ingredients list
 				ingredients = doc.getElementById("rcpinglist").text();
 
-				// check for Diabetes ingredient eliminate list in the recipes
+				// check for Hypothyroidism ingredient eliminate list in the recipes
 				boolean eliminateList = Hypothyroidism_IngredientsCheckList.eliminateIngredient(ingredients);
 
 				System.out.println(eliminateList);
@@ -145,7 +148,7 @@ public class HypothyroidismAllergy extends InitClass{
 					System.out.println(
 							"navigate back--> Eliminated Ingredient present*****************************************************************");
 					driver.navigate()
-							.to("https://www.tarladalal.com/recipes-for-indian-diabetic-recipes-370?pageindex=" + page);
+							.to("recipes-for-hypothyroidism-veg-diet-indian-recipes-849?pageindex=" + page);
 					continue;
 				}
 
@@ -185,15 +188,15 @@ public class HypothyroidismAllergy extends InitClass{
 					System.out.println(
 							"navigate back--> Allergy present*****************************************************************");
 					driver.navigate()
-							.to("https://www.tarladalal.com/recipes-for-indian-diabetic-recipes-370?pageindex=" + page);
+							.to("recipes-for-hypothyroidism-veg-diet-indian-recipes-849?pageindex=" + page);
 					continue;
 
 				}
 
-				// Write in excel Diabetes recipe with Allergy
+				// Write in excel Hypothyroidism recipe with Allergy
 
-				excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 0, recipeId);
-				excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 1, recipeName);
+				excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 0, recipeId);
+				excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 1, recipeName);
 
 				// iterate through tags webElement to capture recipe category and write in excel
 
@@ -204,7 +207,7 @@ public class HypothyroidismAllergy extends InitClass{
 						System.out.println("Food category Present---------" + recipeCategory);
 						recipeCatListPresent.add(recipeCategory);
 					}
-					excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 2, recipeCatListPresent.toString());
+					excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 2, recipeCatListPresent.toString());
 				}
 				recipeCatListPresent.clear();
 
@@ -217,15 +220,15 @@ public class HypothyroidismAllergy extends InitClass{
 						System.out.println("Food category Present---------" + foodCategory);
 						foodCatListPresent.add(foodCategory);
 					}
-					excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 3, foodCatListPresent.toString());
+					excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 3, foodCatListPresent.toString());
 				}
 				foodCatListPresent.clear();
 
-				excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 4, ingredients);
-				excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 5, prepartionTime);
-				excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 6, cookingTime);
-				excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 7, preparationMethod);
-				excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 8, nutrient);
+				excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 4, ingredients);
+				excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 5, prepartionTime);
+				excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 6, cookingTime);
+				excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 7, preparationMethod);
+				excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 8, nutrient);
 
 				// iterate through tags webElement to capture morbid condition and write in
 				// excel
@@ -236,11 +239,11 @@ public class HypothyroidismAllergy extends InitClass{
 					if (tagstext.contains(tarMorbidCondition)) {
 						System.out.println("Morbid condition Present---------" + tarMorbidCondition);
 						morbidCondListPresent.add(tarMorbidCondition);
-						excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 9,
+						excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 9,
 								morbidCondListPresent.toString());
 					}
 				}
-				excelReader.setCellData("Diabetes_Eliminate_Allergies", cell, 10, recipeUrl);
+				excelReader.setCellData("Hypothyroidism_Eliminate_Allergies", cell, 10, recipeUrl);
 				morbidCondListPresent.clear();
 
 				// Printing recipe details on console

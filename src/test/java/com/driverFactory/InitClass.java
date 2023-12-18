@@ -34,7 +34,7 @@ public class InitClass {
 		LoggerLoad.info("from prop file url = " + urlName);
 		driver.get(urlName);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
 	@AfterClass

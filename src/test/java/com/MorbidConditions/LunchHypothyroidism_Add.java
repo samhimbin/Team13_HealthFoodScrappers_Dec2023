@@ -141,7 +141,7 @@ public class LunchHypothyroidism_Add extends InitClass{
 				excelReader.setCellData("HypothyroidismRecipesWithAdd", cell, 6, cookingTime);
 				excelReader.setCellData("HypothyroidismRecipesWithAdd", cell, 7, preparationMethod);
 				excelReader.setCellData("HypothyroidismRecipesWithAdd", cell, 8, nutrient);
-				excelReader.setCellData("HypothyroidismRecipesWithAdd", cell, 9, "Diabetic");
+				excelReader.setCellData("HypothyroidismRecipesWithAdd", cell, 9, "Hypothyroidism");
 				excelReader.setCellData("HypothyroidismRecipesWithAdd", cell, 10, recipeUrl);
 
 				// Printing on console
