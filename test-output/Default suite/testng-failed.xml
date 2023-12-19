@@ -3,14 +3,23 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.TestScripts.HomePageValidation">
+<<<<<<< HEAD
+      <class name="com.MorbidConditions.PCOSAllergy">
         <methods>
-          <include name="CheckElements"/>
+=======
+      <class name="com.MorbidConditions.LunchHyperthyroidism_Eliminate">
+        <methods>
+          <include name="scrapeLunchRecipe"/>
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
           <include name="beforeclass"/>
+          <include name="scrapeSnacksRecipe"/>
           <include name="beforemethod"/>
-          <include name="afterclass"/>
         </methods>
-      </class> <!-- com.TestScripts.HomePageValidation -->
+<<<<<<< HEAD
+      </class> <!-- com.MorbidConditions.PCOSAllergy -->
+=======
+      </class> <!-- com.MorbidConditions.LunchHyperthyroidism_Eliminate -->
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
