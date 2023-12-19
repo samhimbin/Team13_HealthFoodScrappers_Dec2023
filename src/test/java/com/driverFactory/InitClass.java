@@ -13,13 +13,15 @@ public class InitClass {
 	// we will give the initialization of web driver + initializing objects
 	public static WebDriver driver;
 
+
 	// public static Lunch lunch;
+
 
 	@BeforeClass
 	public void beforeclass() throws IOException {
 		LoggerLoad.info("Launching WebDriver:");
 		driver = DriverClass.webDriverLaunch();
-		createPageObject();
+
 	}
 
 	public static void createPageObject() {
@@ -37,10 +39,10 @@ public class InitClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
-	@AfterClass
-	public void afterclass() {
-
-		driver.close();
-
-	}
+//	@AfterClass
+//	public void afterclass() {
+//
+//		driver.close();
+//
+//	}
 }

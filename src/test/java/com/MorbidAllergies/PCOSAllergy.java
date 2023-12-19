@@ -1,4 +1,4 @@
-package com.MorbidConditions;
+package com.MorbidAllergies;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -23,7 +23,7 @@ import com.driverFactory.InitClass;
 import com.TestData.PCOS_IngredientsCheckList;
 import com.TestData.categoryList;
 
-public class PCOSEliminate extends InitClass {
+public class PCOSAllergy extends InitClass {
 	@Test
 	public void PCOSRecipe() throws InterruptedException, IOException {
 	
@@ -47,8 +47,6 @@ public class PCOSEliminate extends InitClass {
 						List<String> acceptedFoodCatList = categoryList.acceptedFoodCategory();
 						List<String> acceptedRecipeCatList = categoryList.acceptedRecipeCategory();
 						List<String> targetedMorbidCondList = categoryList.targetMorbidCondition();
-						
-				
 				
 				//Navigating to PCOS recipes section
 				WebElement Recipes = driver.findElement(By.xpath("//div[normalize-space()='RECIPES']"));
@@ -59,11 +57,13 @@ public class PCOSEliminate extends InitClass {
 				mouseHover.moveToElement(pcos).build().perform();
 				pcos.click();
 				System.out.println("On PCOS recipes Section");
-				
+			
+				//creating Excel
 				//creating Excel
 				String filePath = PropertyReader.getPropFromProperty("config", "excelFilePath")+"MorbidTestData.xlsx";
 				ExcelReader xlUtil = new ExcelReader(filePath);
-				xlUtil.createExcel("PCOS");
+				xlUtil.createExcel("PCOS_Add");
+				System.out.println("Excel created");
 				
 				// Pagination- navigating through all recipe pages
 				int PageNumber=1;// counter to prevent overwriting of data when moving to next page
@@ -91,9 +91,6 @@ public class PCOSEliminate extends InitClass {
 
 					// Adding all recipe urls in arraylist
 					for (WebElement e : recipes_url) {
-						// .findElement -----> finds the tag <a> inside the current WebElement
-						// .getAttribute ----> returns the href attribute of the <a> tag in the current
-						// WebElement
 						link.add(e.findElement(By.tagName("a")).getAttribute("href"));
 					}
 
@@ -102,7 +99,7 @@ public class PCOSEliminate extends InitClass {
 					int counter = 1; // using this counter to select the excel sheet row number to insert data
 					for (Object each_recipe : link) {
 						System.out.println("Counter =" + counter);
-						Document doc = Jsoup.connect((String) each_recipe).timeout(1000 * 100).get(); // clicking each recipe
+						Document doc = Jsoup.connect((String) each_recipe).timeout(1000*100).get(); // clicking each recipe
 						// Fetching Recipe URL
 						String URLString = each_recipe.toString();
 						System.out.println("Recipe URL=" + URLString);
@@ -130,7 +127,14 @@ public class PCOSEliminate extends InitClass {
 							System.out.println("navigate back--> Eliminated Ingredient present--*****************************************************************");
 							driver.navigate().to("https://www.tarladalal.com/recipes-for-pcos-1040?pageindex=" + page);
 							continue;
-						}
+						}	
+						//Allergy List Validation
+						boolean allergyList = PCOS_IngredientsCheckList.checkAllergyIngredients(ingredients);
+						if (allergyList) {
+						System.out.println("navigate back--> Allergy present*****************************************************************");
+						driver.navigate().to("https://www.tarladalal.com/recipes-for-pcos-1040?pageindex=" + page);
+						continue;
+										}
 						System.out.println("Ingredients list=" + ingredients);
 						
 						// fetching preparation time
@@ -169,7 +173,7 @@ public class PCOSEliminate extends InitClass {
 								System.out.println("Recipe category Present---------" + recipeCategory);
 								recipeCatListPresent.add(recipeCategory);
 							}
-							xlUtil.setCellData("PCOS", PageNumber, 2, recipeCatListPresent.toString());
+							xlUtil.setCellData("PCOS_Allergy", PageNumber, 2, recipeCatListPresent.toString());
 						}
 						recipeCatListPresent.clear();
 						// iterate through tags webElement to capture food category and write in excel
@@ -182,7 +186,7 @@ public class PCOSEliminate extends InitClass {
 								foodCatListPresent.add(foodCategory);
 								FinalFoodCategory=foodCategory.concat(" ").concat(FinalFoodCategory);
 							}
-							xlUtil.setCellData("PCOS", PageNumber, 3, FinalFoodCategory);
+							xlUtil.setCellData("PCOS_Allergy", PageNumber, 3, FinalFoodCategory);
 						}
 						// iterate through tags webElement to capture morbid condition and write in excel
 						
@@ -193,20 +197,21 @@ public class PCOSEliminate extends InitClass {
 							if (tagsText.contains(tarMorbidCondition)) {
 								System.out.println("Morbid condition Present---------" + tarMorbidCondition);
 								morbidCondListPresent.add(tarMorbidCondition);
-								xlUtil.setCellData("PCOS", PageNumber, 9,
+								xlUtil.setCellData("PCOS_Allergy", PageNumber, 9,
 										morbidCondListPresent.toString());
 							}
 						}
 						morbidCondListPresent.clear();
 						
 						//Printing all data in excel sheet
-						xlUtil.setCellData("PCOS", PageNumber, 10, URLString);
-						xlUtil.setCellData("PCOS", PageNumber, 0, recipe_id);
-						xlUtil.setCellData("PCOS", PageNumber, 1, recipe_name);
-						xlUtil.setCellData("PCOS", PageNumber, 4, ingredients);
-						xlUtil.setCellData("PCOS", PageNumber, 5, prep_Time);
-						xlUtil.setCellData("PCOS", PageNumber, 6, cook_Time);
-						xlUtil.setCellData("PCOS", PageNumber, 7, method);
+						xlUtil.setCellData("PCOS_Allergy", PageNumber, 10, URLString);
+						xlUtil.setCellData("PCOS_Allergy", PageNumber, 0, recipe_id);
+						xlUtil.setCellData("PCOS_Allergy", PageNumber, 1, recipe_name);
+						xlUtil.setCellData("PCOS_Allergy", PageNumber, 4, ingredients);
+						xlUtil.setCellData("PCOS_Allergy", PageNumber, 5, prep_Time);
+						xlUtil.setCellData("PCOS_Allergy", PageNumber, 6, cook_Time);
+						xlUtil.setCellData("PCOS_Allergy", PageNumber, 7, method);
+						xlUtil.setCellData("PCOS_Allergy", PageNumber, 8, nutrientValue);
 						//xlUtil.setCellData("PCOS", PageNumber, 3, FinalFoodCategory);
 						
 						counter++;
@@ -214,6 +219,8 @@ public class PCOSEliminate extends InitClass {
 						PageNumber++;
 						System.out.println("*****************************************************************");
 						driver.navigate().to("https://www.tarladalal.com/recipes-for-pcos-1040?pageindex=" + page);
+						
+						
 					}
 					}
 					System.out.println("Done!!!!");
@@ -225,6 +232,7 @@ public class PCOSEliminate extends InitClass {
 
 }
 }
+
 
 
 

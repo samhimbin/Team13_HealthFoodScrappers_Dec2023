@@ -3,13 +3,21 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="scrapping(failed)">
     <classes>
+<<<<<<< HEAD
+      <class name="com.MorbidConditions.PCOSAllergy">
+        <methods>
+=======
       <class name="com.MorbidConditions.LunchHyperthyroidism_Eliminate">
         <methods>
           <include name="scrapeLunchRecipe"/>
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
           <include name="beforeclass"/>
+          <include name="scrapeSnacksRecipe"/>
           <include name="beforemethod"/>
-          <include name="afterclass"/>
         </methods>
+<<<<<<< HEAD
+      </class> <!-- com.MorbidConditions.PCOSAllergy -->
+=======
       </class> <!-- com.MorbidConditions.LunchHyperthyroidism_Eliminate -->
       <class name="com.MorbidConditions.HypothyrodismEliminate">
         <methods>
@@ -27,6 +35,7 @@
           <include name="afterclass"/>
         </methods>
       </class> <!-- com.RecipeFoodCategory.LunchRecipe_WithfoodCat -->
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
     </classes>
   </test> <!-- scrapping(failed) -->
 </suite> <!-- Failed suite [Suite] -->

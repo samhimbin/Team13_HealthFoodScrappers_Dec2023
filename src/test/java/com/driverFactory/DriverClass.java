@@ -27,6 +27,7 @@ public class DriverClass {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
 			driver= new ChromeDriver(options);
+
 		} 
 		else if (browserName.equalsIgnoreCase("edge")) {
 			LoggerLoad.info("We are launching: " + browserName);
