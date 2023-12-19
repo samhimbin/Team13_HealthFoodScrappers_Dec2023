@@ -3,7 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.TestScripts.HomePageValidation"></class>
+      <class name="com.Utilities.TakeScreenshotClass"/>
+      <class name="com.MorbidAllergies.HypertensionAllergy"/>
+      <class name="com.RecipeFoodCategory.Breakfast1"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

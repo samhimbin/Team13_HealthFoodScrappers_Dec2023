@@ -20,7 +20,7 @@ public class InitClass {
 	public void beforeclass() throws IOException {
 		LoggerLoad.info("Launching WebDriver:");
 		driver = DriverClass.webDriverLaunch();
-		createPageObject();
+//		createPageObject();
 	}
 
 	public static void createPageObject() {

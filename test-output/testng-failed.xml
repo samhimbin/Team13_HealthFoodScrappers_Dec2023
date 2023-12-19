@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.TestScripts.HomePageValidation">
+      <class name="com.MorbidAllergies.HypertensionAllergy">
         <methods>
-          <include name="CheckElements"/>
           <include name="beforeclass"/>
+          <include name="highBloodPressure"/>
           <include name="beforemethod"/>
           <include name="afterclass"/>
         </methods>
-      </class> <!-- com.TestScripts.HomePageValidation -->
+      </class> <!-- com.MorbidAllergies.HypertensionAllergy -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

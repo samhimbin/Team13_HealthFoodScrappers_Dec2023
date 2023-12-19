@@ -1,5 +1,8 @@
 package com.MorbidAllergies;
 
+
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,14 +11,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import com.driverFactory.InitClass;
+import com.driverFactory.*;
 import com.Utilities.*;
 
 
 //public class HyperTensionAllergy extends  InitClass {
 	
 	
-	public class HyperTensionAllergy extends InitClass {
+	public class HypertensionAllergy extends InitClass {
 		
 		
 	public static ArrayList<String> recipeid = new ArrayList<String>();
