@@ -10,10 +10,13 @@ import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler;
 import org.apache.poi.xssf.streaming.SXSSFCell;
 =======
 >>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
+=======
+>>>>>>> priyanka
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFFont;
@@ -123,10 +126,15 @@ public class ExcelReader {
 		fo.close();
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> priyanka
 	public void createExcel(String sheetName) throws IOException {
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		XSSFSheet sheet = workbook.createSheet(sheetName);
 	
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 	public void createExcel(String sheetName) throws IOException {
@@ -137,6 +145,8 @@ public class ExcelReader {
 		XSSFRow row = sheet.createRow(0);
 		
 >>>>>>> 6b2afe5126f43dbc773d90534d594719cf3bd4f2
+=======
+>>>>>>> priyanka
 		// creating first row of Excel
 		setCellData(sheetName, 0, 0, "RecipeID");
 		setCellData(sheetName, 0, 1, "RecipeName");
@@ -153,12 +163,15 @@ public class ExcelReader {
 		
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	
 		
 =======
 >>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
 >>>>>>> 6b2afe5126f43dbc773d90534d594719cf3bd4f2
+=======
+>>>>>>> priyanka
 	public void fillGreenColor(String sheetName,int rownum,int colnum) throws IOException
 	{
 		fi=new FileInputStream(path);
@@ -180,7 +193,10 @@ public class ExcelReader {
 		fo.close();
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> priyanka
 	
 	
 	public void fillRedColor(String sheetName,int rownum,int colnum) throws IOException
@@ -202,5 +218,8 @@ public class ExcelReader {
 		fi.close();
 		fo.close();
 	}
+<<<<<<< HEAD
 >>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
+=======
+>>>>>>> priyanka
 }

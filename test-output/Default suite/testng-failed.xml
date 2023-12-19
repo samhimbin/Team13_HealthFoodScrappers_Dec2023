@@ -4,6 +4,7 @@
   <test thread-count="5" name="Default test(failed)">
     <classes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <class name="com.MorbidConditions.PCOSAllergy">
         <methods>
 =======
@@ -20,6 +21,15 @@
 =======
       </class> <!-- com.MorbidConditions.LunchHyperthyroidism_Eliminate -->
 >>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
+=======
+      <class name="com.MorbidConditions.DiabetesToAdd">
+        <methods>
+          <include name="beforeclass"/>
+          <include name="scrapeDiabeticToAddRecipe"/>
+          <include name="beforemethod"/>
+        </methods>
+      </class> <!-- com.MorbidConditions.DiabetesToAdd -->
+>>>>>>> priyanka
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
