@@ -4,6 +4,30 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
+  <suite started-at="2023-12-19T13:50:28 CST" name="Default suite" finished-at="2023-12-19T15:19:39 CST" duration-ms="5350761">
+    <groups>
+    </groups>
+    <test started-at="2023-12-19T13:50:28 CST" name="Default test" finished-at="2023-12-19T15:19:39 CST" duration-ms="5350761">
+      <class name="com.MorbidAllergies.HypertensionAllergy">
+        <test-method is-config="true" signature="beforeclass()[pri:0, instance:com.MorbidAllergies.HypertensionAllergy@71ba6d4e]" started-at="2023-12-19T13:50:28 CST" name="beforeclass" finished-at="2023-12-19T13:50:36 CST" duration-ms="7127" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeclass -->
+        <test-method is-config="true" signature="beforemethod()[pri:0, instance:com.MorbidAllergies.HypertensionAllergy@71ba6d4e]" started-at="2023-12-19T13:50:36 CST" name="beforemethod" finished-at="2023-12-19T13:50:41 CST" duration-ms="5161" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforemethod -->
+        <test-method signature="highBloodPressure()[pri:0, instance:com.MorbidAllergies.HypertensionAllergy@71ba6d4e]" started-at="2023-12-19T13:50:41 CST" name="highBloodPressure" finished-at="2023-12-19T15:19:39 CST" duration-ms="5338210" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- highBloodPressure -->
+        <test-method is-config="true" signature="afterclass()[pri:0, instance:com.MorbidAllergies.HypertensionAllergy@71ba6d4e]" started-at="2023-12-19T15:19:39 CST" name="afterclass" finished-at="2023-12-19T15:19:39 CST" duration-ms="168" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterclass -->
+      </class> <!-- com.MorbidAllergies.HypertensionAllergy -->
+=======
   <suite started-at="2023-12-18T22:11:10 EST" name="Default suite" finished-at="2023-12-18T22:21:53 EST" duration-ms="643284">
     <groups>
     </groups>
@@ -435,6 +459,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </reporter-output>
         </test-method> <!-- scrapeDiabeticToAddRecipe -->
       </class> <!-- com.MorbidConditions.DiabetesToAdd -->
+>>>>>>> 8f57850daeb46455ee35419cc1edfa14144bf33c
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 >>>>>>> priyanka

@@ -4,6 +4,12 @@
   <test thread-count="5" name="Default test(failed)">
     <classes>
 <<<<<<< HEAD
+      <class name="com.MorbidAllergies.HypertensionAllergy">
+        <methods>
+          <include name="beforeclass"/>
+          <include name="highBloodPressure"/>
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
       <class name="com.MorbidConditions.PCOSAllergy">
         <methods>
@@ -26,10 +32,15 @@
         <methods>
           <include name="beforeclass"/>
           <include name="scrapeDiabeticToAddRecipe"/>
+>>>>>>> 8f57850daeb46455ee35419cc1edfa14144bf33c
           <include name="beforemethod"/>
         </methods>
+<<<<<<< HEAD
+      </class> <!-- com.MorbidAllergies.HypertensionAllergy -->
+=======
       </class> <!-- com.MorbidConditions.DiabetesToAdd -->
 >>>>>>> priyanka
+>>>>>>> 8f57850daeb46455ee35419cc1edfa14144bf33c
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

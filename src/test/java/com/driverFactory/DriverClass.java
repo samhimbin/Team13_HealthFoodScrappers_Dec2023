@@ -26,11 +26,19 @@ public class DriverClass {
 		LoggerLoad.info("We are launching: " + browserName);
 		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
+<<<<<<< HEAD
+			
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless");
+			driver = new ChromeDriver(options);		
+//			driver= new ChromeDriver();	
+=======
 			ChromeOptions options = new ChromeOptions();
 			 options.addArguments("--headless");
 			  driver = new ChromeDriver(options);
 			//driver= new ChromeDriver();
 
+>>>>>>> 8f57850daeb46455ee35419cc1edfa14144bf33c
 		} 
 		else if (browserName.equalsIgnoreCase("edge")) {
 			LoggerLoad.info("We are launching: " + browserName);
@@ -46,3 +54,5 @@ public class DriverClass {
 		return driver;
 	}
 }
+
+

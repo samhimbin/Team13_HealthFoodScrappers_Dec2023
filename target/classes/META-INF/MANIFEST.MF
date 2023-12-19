@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Neetu1
 Manifest-Version: 1.0
 Build-Jdk-Spec: 17
 Created-By: Maven Integration for Eclipse
 
+<<<<<<< HEAD
 =======
 Manifest-Version: 1.0
 Built-By: kiran
@@ -10,3 +14,5 @@ Build-Jdk: 17.0.6
 Created-By: Maven Integration for Eclipse
 
 >>>>>>> 8f57850daeb46455ee35419cc1edfa14144bf33c
+=======
+>>>>>>> Neetu1

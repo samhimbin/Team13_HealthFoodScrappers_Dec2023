@@ -5,8 +5,14 @@
 <<<<<<< HEAD
   <test thread-count="5" name="Test">
     <classes>
+<<<<<<< HEAD
+      <class name="com.Utilities.TakeScreenshotClass"/>
+      <class name="com.MorbidAllergies.HypertensionAllergy"/>
+      <class name="com.RecipeFoodCategory.Breakfast1"/>
+=======
       <class name="com.TestScripts.HomePageValidation"></class>
       <class name="com.RecipeCategory.Dinner"></class>
+>>>>>>> 8f57850daeb46455ee35419cc1edfa14144bf33c
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
