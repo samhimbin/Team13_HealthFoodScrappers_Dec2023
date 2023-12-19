@@ -9,14 +9,7 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
-<<<<<<< HEAD
-import org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler;
-import org.apache.poi.xssf.streaming.SXSSFCell;
-=======
->>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
 import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -122,21 +115,11 @@ public class ExcelReader {
 		fi.close();
 		fo.close();
 	}
-<<<<<<< HEAD
+
 	public void createExcel(String sheetName) throws IOException {
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		XSSFSheet sheet = workbook.createSheet(sheetName);
 	
-=======
-<<<<<<< HEAD
-	public void createExcel(String sheetName) throws IOException {
-		XSSFWorkbook workbook = new XSSFWorkbook();
-		XSSFSheet sheet = workbook.createSheet(sheetName);
-		XSSFCellStyle style = workbook.createCellStyle();
-		XSSFFont font = workbook.createFont();
-		XSSFRow row = sheet.createRow(0);
-		
->>>>>>> 6b2afe5126f43dbc773d90534d594719cf3bd4f2
 		// creating first row of Excel
 		setCellData(sheetName, 0, 0, "RecipeID");
 		setCellData(sheetName, 0, 1, "RecipeName");
@@ -152,13 +135,6 @@ public class ExcelReader {
 		setCellData(sheetName,0,11,"To Add Ingredient(Bonus Points)");
 		
 		}
-<<<<<<< HEAD
-=======
-	
-		
-=======
->>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
->>>>>>> 6b2afe5126f43dbc773d90534d594719cf3bd4f2
 	public void fillGreenColor(String sheetName,int rownum,int colnum) throws IOException
 	{
 		fi=new FileInputStream(path);
@@ -179,8 +155,6 @@ public class ExcelReader {
 		fi.close();
 		fo.close();
 	}
-<<<<<<< HEAD
-=======
 	
 	
 	public void fillRedColor(String sheetName,int rownum,int colnum) throws IOException
@@ -202,5 +176,4 @@ public class ExcelReader {
 		fi.close();
 		fo.close();
 	}
->>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
 }

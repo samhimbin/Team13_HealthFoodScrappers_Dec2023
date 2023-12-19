@@ -39,7 +39,7 @@ public class LunchRecipe_WithfoodCat extends InitClass {
 		String RecipeCategory = "Lunch";
 
 		// xlsheet path
-		String filePath = PropertyReader.getPropFromProperty("config", "excelFilePath")+"MorbidTestData.xlsx";
+		String filePath = PropertyReader.getPropFromProperty("config", "excelFilePath")+"RecipeTestData.xlsx";
 		ExcelReader xlUtil = new ExcelReader(filePath);
 		xlUtil.createExcel("PCOS_Add");
 		System.out.println("Excel created");

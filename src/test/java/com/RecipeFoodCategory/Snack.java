@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 package com.RecipeFoodCategory;
 
 import java.io.IOException;
@@ -213,10 +211,3 @@ public class Snack extends InitClass {
 
 	}
 }
-=======
-package com.RecipeFoodCategory;
-
-public class Snack {
-
-}
->>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
