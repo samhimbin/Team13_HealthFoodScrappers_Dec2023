@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 package com.RecipeFoodCategory;
 
 import java.io.IOException;
@@ -67,21 +65,9 @@ public class Snack extends InitClass {
 		
 
 		// ---------------creating excel -------------------------------------------
-		String filePath = ".//src//test//resources//TestData//RecipeTestData.xlsx";
+		String filePath = PropertyReader.getPropFromProperty("config", "excelFilePath")+"RecipeTestData.xlsx";
 		ExcelReader xlUtil = new ExcelReader(filePath);
-		// creating first row of Excel
-		
-		xlUtil.setCellData("Snacks", 0, 0, "RecipeID");
-		xlUtil.setCellData("Snacks", 0, 1, "RecipeName");
-		xlUtil.setCellData("Snacks", 0, 2, "Recipe Category(Breakfast/lunch/snack/dinner)");
-		xlUtil.setCellData("Snacks", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
-		xlUtil.setCellData("Snacks", 0, 4, "Ingredients");
-		xlUtil.setCellData("Snacks", 0, 5, "Preparation Time");
-		xlUtil.setCellData("Snacks", 0, 6, "Cooking Time");
-		xlUtil.setCellData("Snacks", 0, 7, "Preparation method");
-		xlUtil.setCellData("Snacks", 0, 8, "Nutrient values");
-		xlUtil.setCellData("Snacks", 0, 9, "Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
-		xlUtil.setCellData("Snacks", 0, 10, "Recipe URL");
+		xlUtil.createExcel("Snacks");
 		System.out.println("Excel created");
 		
 		// Pagination- navigating through all recipe pages
@@ -213,10 +199,3 @@ public class Snack extends InitClass {
 
 	}
 }
-=======
-package com.RecipeFoodCategory;
-
-public class Snack {
-
-}
->>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
