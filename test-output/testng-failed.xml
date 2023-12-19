@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="scrapping(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="com.MorbidConditions.PCOSAllergy">
         <methods>
+=======
+      <class name="com.MorbidConditions.LunchHyperthyroidism_Eliminate">
+        <methods>
+          <include name="scrapeLunchRecipe"/>
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
           <include name="beforeclass"/>
           <include name="scrapeSnacksRecipe"/>
           <include name="beforemethod"/>
         </methods>
+<<<<<<< HEAD
       </class> <!-- com.MorbidConditions.PCOSAllergy -->
+=======
+      </class> <!-- com.MorbidConditions.LunchHyperthyroidism_Eliminate -->
+      <class name="com.MorbidConditions.HypothyrodismEliminate">
+        <methods>
+          <include name="scrapeRecipe"/>
+          <include name="beforeclass"/>
+          <include name="beforemethod"/>
+          <include name="afterclass"/>
+        </methods>
+      </class> <!-- com.MorbidConditions.HypothyrodismEliminate -->
+      <class name="com.RecipeFoodCategory.LunchRecipe_WithfoodCat">
+        <methods>
+          <include name="scrapelunchRecipe"/>
+          <include name="beforeclass"/>
+          <include name="beforemethod"/>
+          <include name="afterclass"/>
+        </methods>
+      </class> <!-- com.RecipeFoodCategory.LunchRecipe_WithfoodCat -->
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- scrapping(failed) -->
+</suite> <!-- Failed suite [Suite] -->

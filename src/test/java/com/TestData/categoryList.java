@@ -1,10 +1,10 @@
 package com.TestData;
 
+import com.driverFactory.InitClass;
 import java.util.ArrayList;
 import java.util.List;
-import com.driverFactory.InitClass;
 
-public class categoryList extends InitClass {
+public class categoryList extends InitClass  {
 
 	public static List<String> acceptedFoodCatList = new ArrayList<String>();
 	public static List<String> acceptedRecipeCatList = new ArrayList<String>();
@@ -31,7 +31,8 @@ public class categoryList extends InitClass {
 		return acceptedRecipeCatList;
 	}
 
-	public static List<String> targetMorbidCondition() {
+	public static List<String> targetMorbidCondition() 
+	{
 
 		targetMorbidConditionList.add("Diabetic");
 		targetMorbidConditionList.add("Hyperthyroidism");
@@ -42,3 +43,4 @@ public class categoryList extends InitClass {
 	}
 
 }
+

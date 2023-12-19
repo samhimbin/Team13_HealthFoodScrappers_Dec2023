@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-
 import com.Utilities.LoggerLoad;
 import com.Utilities.PropertyReader;
 
@@ -15,10 +14,20 @@ public class InitClass {
 	public static WebDriver driver;
 
 
+	// public static Lunch lunch;
+
+
 	@BeforeClass
 	public void beforeclass() throws IOException {
 		LoggerLoad.info("Launching WebDriver:");
 		driver = DriverClass.webDriverLaunch();
+
+	}
+
+	public static void createPageObject() {
+		LoggerLoad.info("Creating Objects:");
+		// All the page objects will be called here
+		
 	}
 
 	@BeforeMethod
@@ -27,7 +36,7 @@ public class InitClass {
 		LoggerLoad.info("from prop file url = " + urlName);
 		driver.get(urlName);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
 //	@AfterClass

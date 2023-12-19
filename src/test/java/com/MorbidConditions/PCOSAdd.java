@@ -208,7 +208,8 @@ public class PCOSAdd extends InitClass {
 										morbidCondListPresent.toString());
 							}
 						}
-						morbidCondListPresent.clear();
+						
+						
 						
 						//Printing all data in excel sheet
 						xlUtil.setCellData("PCOS_Add", PageNumber, 10, URLString);
@@ -219,6 +220,11 @@ public class PCOSAdd extends InitClass {
 						xlUtil.setCellData("PCOS_Add", PageNumber, 6, cook_Time);
 						xlUtil.setCellData("PCOS_Add", PageNumber, 7, method);
 						xlUtil.setCellData("PCOS_Add", PageNumber, 11, toAddIngredientName);
+						
+						// Clear the list for next iteration
+						recipeCatListPresent.clear();
+						foodCatListPresent.clear();
+						morbidCondListPresent.clear();
 						
 						counter++;
 						System.out.println("Counter="+counter);

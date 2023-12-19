@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+<<<<<<< HEAD
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.TestScripts.HomePageValidation"></class>
@@ -8,3 +9,17 @@
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
+=======
+	<test name="scrapping">
+		<classes>
+			<class name="com.MorbidAllergies.Hypothyroidism_Allergy"></class>
+			<class name="com.MorbidConditions.HypothyrodismEliminate"></class>
+			<class name="com.MorbidConditions.Hypothyroidism_Add"></class>
+			<class name="com.MorbidConditions.Hypothyroidism"></class>
+			<class name="com.MorbidConditions.LunchHyperthyroidism_Eliminate"></class>
+			<class name="com.RecipeFoodCategory.LunchRecipe_WithfoodCat"></class>
+		</classes>
+	</test>
+	
+</suite>
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd

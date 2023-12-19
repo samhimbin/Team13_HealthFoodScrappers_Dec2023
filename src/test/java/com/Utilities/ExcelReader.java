@@ -9,8 +9,11 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
+<<<<<<< HEAD
 import org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler;
 import org.apache.poi.xssf.streaming.SXSSFCell;
+=======
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFFont;
@@ -43,7 +46,28 @@ public class ExcelReader {
 		 
 		 return jsonFile;
 	 }
+	 public int getRowCount(String sheetName) throws IOException 
+		{
+			fi=new FileInputStream(path);
+			workbook=new XSSFWorkbook(fi);
+			sheet=workbook.getSheet(sheetName);
+			int rowcount=sheet.getLastRowNum();
+			workbook.close();
+			fi.close();
+			return rowcount;		
+		}
 
+		public int getCellCount(String sheetName,int rownum) throws IOException
+		{
+			fi=new FileInputStream(path);
+			workbook=new XSSFWorkbook(fi);
+			sheet=workbook.getSheet(sheetName);
+			row=sheet.getRow(rownum);
+			int cellcount=row.getLastCellNum();
+			workbook.close();
+			fi.close();
+			return cellcount;
+		}
 	 
 	public String getCellData(String sheetName,int rownum,int colnum) throws IOException
 	{
@@ -98,6 +122,7 @@ public class ExcelReader {
 		fi.close();
 		fo.close();
 	}
+<<<<<<< HEAD
 	public void createExcel(String sheetName) throws IOException {
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		XSSFSheet sheet = workbook.createSheet(sheetName);
@@ -122,6 +147,8 @@ public class ExcelReader {
 		}
 	
 		
+=======
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
 	public void fillGreenColor(String sheetName,int rownum,int colnum) throws IOException
 	{
 		fi=new FileInputStream(path);
@@ -142,4 +169,28 @@ public class ExcelReader {
 		fi.close();
 		fo.close();
 	}
+<<<<<<< HEAD
+=======
+	
+	
+	public void fillRedColor(String sheetName,int rownum,int colnum) throws IOException
+	{
+		fi=new FileInputStream(path);
+		workbook=new XSSFWorkbook(fi);
+		sheet=workbook.getSheet(sheetName);
+		row=sheet.getRow(rownum);
+		cell=row.getCell(colnum);
+		
+		style=workbook.createCellStyle();
+		
+		style.setFillForegroundColor(IndexedColors.RED.getIndex());
+		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);  
+		
+		cell.setCellStyle(style);		
+		workbook.write(fo);
+		workbook.close();
+		fi.close();
+		fo.close();
+	}
+>>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
 }

@@ -25,8 +25,9 @@ public class DriverClass {
 		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
-			 options.addArguments("--headless");
-			  driver = new ChromeDriver(options);
+			options.addArguments("--headless");
+			driver= new ChromeDriver(options);
+
 		} 
 		else if (browserName.equalsIgnoreCase("edge")) {
 			LoggerLoad.info("We are launching: " + browserName);
