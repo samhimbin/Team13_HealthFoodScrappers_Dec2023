@@ -1,5 +1,7 @@
 package com.Utilities;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 
@@ -10,7 +12,7 @@ import org.testng.annotations.Test;
 import com.driverFactory.InitClass;
 
 
-public class TakeScreenshotClass {
+public class TakeScreenshotClass extends InitClass{
 	@Test
 	public static void takescreenshot() throws IOException {
 		// To take the screenshot
