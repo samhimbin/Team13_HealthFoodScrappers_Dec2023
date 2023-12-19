@@ -16,6 +16,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.Utilities.ExcelReader;
+import com.Utilities.PropertyReader;
 import com.driverFactory.InitClass;
 
 public class Hypothyroidism extends InitClass {
@@ -67,20 +68,9 @@ public void scrapeHypothyroidismRecipe() throws InterruptedException, IOExceptio
 				System.out.println("On hypothyroidism recipes Section");
 				
 				//creating Excel
-				String filePath = ".\\src\\test\\resources\\TestData\\MorbidTestData.xlsx";
+				String filePath = PropertyReader.getPropFromProperty("config", "excelFilePath")+"MorbidTestData.xlsx";
 				ExcelReader xlUtil = new ExcelReader(filePath);
-				// creating first row of Excel
-				xlUtil.setCellData("hypothyroidism", 0, 0, "RecipeID");
-				xlUtil.setCellData("hypothyroidism", 0, 1, "RecipeName");
-				xlUtil.setCellData("hypothyroidism", 0, 2, "Recipe Category(Breakfast/lunch/snack/dinner)");
-				xlUtil.setCellData("hypothyroidism", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
-				xlUtil.setCellData("hypothyroidism", 0, 4, "Ingredients");
-				xlUtil.setCellData("hypothyroidism", 0, 5, "Preparation Time");
-				xlUtil.setCellData("hypothyroidism", 0, 6, "Cooking Time");
-				xlUtil.setCellData("hypothyroidism", 0, 7, "Preparation method");
-				xlUtil.setCellData("hypothyroidism", 0, 8, "Nutrient values");
-				xlUtil.setCellData("hypothyroidism", 0, 9, "Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
-				xlUtil.setCellData("hypothyroidism", 0, 10, "Recipe URL");
+				xlUtil.createExcel("hypothyroidism");
 				System.out.println("Excel created");
 				
 				// Pagination- navigating through all recipe pages

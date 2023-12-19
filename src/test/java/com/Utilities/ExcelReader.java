@@ -115,6 +115,25 @@ public class ExcelReader {
 		fi.close();
 		fo.close();
 	}
+	public void createExcel(String sheetName) throws IOException {
+		XSSFWorkbook workbook = new XSSFWorkbook();
+		XSSFSheet sheet = workbook.createSheet(sheetName);
+	
+		// creating first row of Excel
+		setCellData(sheetName, 0, 0, "RecipeID");
+		setCellData(sheetName, 0, 1, "RecipeName");
+		setCellData(sheetName, 0, 2, "Recipe Category(Breakfast/lunch/snack/dinner)");
+		setCellData(sheetName, 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
+		setCellData(sheetName, 0, 4, "Ingredients");
+		setCellData(sheetName, 0, 5, "Preparation Time");
+		setCellData(sheetName, 0, 6, "Cooking Time");
+		setCellData(sheetName, 0, 7, "Preparation method");
+		setCellData(sheetName, 0, 8, "Nutrient values");
+		setCellData(sheetName, 0, 9, "Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
+		setCellData(sheetName, 0, 10, "Recipe URL");
+		setCellData(sheetName,0,11,"To Add Ingredient(Bonus Points)");
+		
+		}
 	public void fillGreenColor(String sheetName,int rownum,int colnum) throws IOException
 	{
 		fi=new FileInputStream(path);

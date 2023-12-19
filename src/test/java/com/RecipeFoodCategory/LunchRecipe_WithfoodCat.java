@@ -10,7 +10,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import com.Utilities.ExcelReader;
+import com.Utilities.*;
+import com.Utilities.PropertyReader;
 import com.driverFactory.InitClass;
 
 public class LunchRecipe_WithfoodCat extends InitClass {
@@ -38,28 +39,10 @@ public class LunchRecipe_WithfoodCat extends InitClass {
 		String RecipeCategory = "Lunch";
 
 		// xlsheet path
-		String path = ".\\src\\test\\resources\\TestData\\RecipeTestData.xlsx";
-		ExcelReader excelReader = new ExcelReader(path);
-
-		// write headers in xlsheet
-		try {
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 0, "Recipe Id");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 1, "Recipe Name");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 2, "Recipe Category(Breakfast/lunch/snack/lunch)");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 4, "Ingredients");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 5, "Preparation Time");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 6, "Cooking Time");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 7, "Preparation method");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 8, "Nutrient values");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 9,
-					"Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
-			excelReader.setCellData("LunchFoodCatRecipes", 0, 10, "Recipe URL");
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String filePath = PropertyReader.getPropFromProperty("config", "excelFilePath")+"MorbidTestData.xlsx";
+		ExcelReader xlUtil = new ExcelReader(filePath);
+		xlUtil.createExcel("PCOS_Add");
+		System.out.println("Excel created");
 		Thread.sleep(2);
 
 		// Search lunch recipe from recipe search box on Home page
@@ -140,9 +123,9 @@ public class LunchRecipe_WithfoodCat extends InitClass {
 
 					System.out.println("Recipe category Present---------" + RecipeCategory);
 
-					excelReader.setCellData("LunchFoodCatRecipes", cell, 2, RecipeCategory);
-					excelReader.setCellData("LunchFoodCatRecipes", cell, 0, recipeId);
-					excelReader.setCellData("LunchFoodCatRecipes", cell, 1, recipeName);
+					xlUtil.setCellData("LunchFoodCatRecipes", cell, 2, RecipeCategory);
+					xlUtil.setCellData("LunchFoodCatRecipes", cell, 0, recipeId);
+					xlUtil.setCellData("LunchFoodCatRecipes", cell, 1, recipeName);
 
 					// iterate through tags webElement to capture food category and write in excel
 					for (int j = 0; j < acceptedFoodCatList.size(); j++) {
@@ -152,16 +135,16 @@ public class LunchRecipe_WithfoodCat extends InitClass {
 							System.out.println("Food category Present---------" + foodCategory);
 							foodCatListPresent.add(foodCategory);
 						}
-						excelReader.setCellData("LunchFoodCatRecipes", cell, 3, foodCatListPresent.toString());
+						xlUtil.setCellData("LunchFoodCatRecipes", cell, 3, foodCatListPresent.toString());
 
 					}
 					foodCatListPresent.clear();
 
-					excelReader.setCellData("LunchFoodCatRecipes", cell, 4, ingredients);
-					excelReader.setCellData("LunchFoodCatRecipes", cell, 5, prepartionTime);
-					excelReader.setCellData("LunchFoodCatRecipes", cell, 6, cookingTime);
-					excelReader.setCellData("LunchFoodCatRecipes", cell, 7, preparationMethod);
-					excelReader.setCellData("LunchFoodCatRecipes", cell, 8, nutrient);
+					xlUtil.setCellData("LunchFoodCatRecipes", cell, 4, ingredients);
+					xlUtil.setCellData("LunchFoodCatRecipes", cell, 5, prepartionTime);
+					xlUtil.setCellData("LunchFoodCatRecipes", cell, 6, cookingTime);
+					xlUtil.setCellData("LunchFoodCatRecipes", cell, 7, preparationMethod);
+					xlUtil.setCellData("LunchFoodCatRecipes", cell, 8, nutrient);
 
 					// iterate through tags webElement to capture morbid condition and write in
 					// excel
@@ -172,10 +155,10 @@ public class LunchRecipe_WithfoodCat extends InitClass {
 						if (tagstext.contains(tarMorbidCondition)) {
 							System.out.println("Morbid condition Present---------" + tarMorbidCondition);
 							morbidCondListPresent.add(tarMorbidCondition);
-							excelReader.setCellData("LunchFoodCatRecipes", cell, 9, morbidCondListPresent.toString());
+							xlUtil.setCellData("LunchFoodCatRecipes", cell, 9, morbidCondListPresent.toString());
 						}
 					}
-					excelReader.setCellData("LunchFoodCatRecipes", cell, 10, recipeUrl);
+					xlUtil.setCellData("LunchFoodCatRecipes", cell, 10, recipeUrl);
 					// Printing on console
 					System.out.println("Number of tags present: " + tagsSize);
 					// System.out.println("--" + tagstext + "--");
