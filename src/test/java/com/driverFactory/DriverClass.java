@@ -3,6 +3,7 @@ package com.driverFactory;
 import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -23,7 +24,11 @@ public class DriverClass {
 		LoggerLoad.info("We are launching: " + browserName);
 		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driver= new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			 options.addArguments("--headless");
+			  driver = new ChromeDriver(options);
+			
+			//driver= new ChromeDriver();
 		} 
 		else if (browserName.equalsIgnoreCase("edge")) {
 			LoggerLoad.info("We are launching: " + browserName);

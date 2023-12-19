@@ -11,41 +11,25 @@ import org.testng.annotations.Test;
 import com.TestData.Hypertension_EliminateIngredientsCheckList;
 import com.TestData.categoryList;
 import com.Utilities.ExcelReader;
+import com.Utilities.PropertyReader;
 import com.driverFactory.InitClass;
 
 	@SuppressWarnings("unused")
-	public class HypertensionEliminiate1 extends InitClass {
-	
+	public class HypertensionEliminiate1 extends InitClass {	
 
 		@Test
 		public void scrapeHypertensionRecipes() throws InterruptedException, IOException {
 
 			String RecipeCategory = "Dinner";	
 
-			// xlsheet path
-			String path = "./src/test/resources/TestData/ReceipesMorbidConditions.xlsx";
-			ExcelReader excelReader = new ExcelReader(path);
+			// write headers for in xlsheet
+			
+						String filePath = PropertyReader.getPropFromProperty("config", "excelFilePath")+"MorbidTestData.xlsx";
+						ExcelReader excelReader = new ExcelReader(filePath);
+						excelReader.createExcel("HypertensionRecipes");
+						System.out.println("Excel created");
 
-			// write headers in xlsheet
-			try {
-				excelReader.setCellData("HypertensionRecipes", 0, 0, "Recipe Id");
-				excelReader.setCellData("HypertensionRecipes", 0, 1, "Recipe Name");
-				excelReader.setCellData("HypertensionRecipes", 0, 2, "Recipe Category(Breakfast/lunch/snack/dinner)");
-				excelReader.setCellData("HypertensionRecipes", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
-				excelReader.setCellData("HypertensionRecipes", 0, 4, "Ingredients");
-				excelReader.setCellData("HypertensionRecipes", 0, 5, "Preparation Time");
-				excelReader.setCellData("HypertensionRecipes", 0, 6, "Cooking Time");
-				excelReader.setCellData("HypertensionRecipes", 0, 7, "Preparation method");
-				excelReader.setCellData("HypertensionRecipes", 0, 8, "Nutrient values");
-				excelReader.setCellData("HypertensionRecipes", 0, 9,
-						"Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
-				excelReader.setCellData("HypertensionRecipes", 0, 10, "Recipe URL");
-
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Thread.sleep(2);
+					Thread.sleep(2);
 
 			// Search High Blood pressure recipes from recipe search box on Home page
 			WebElement recipeSearchBox = driver.findElement(By.id("ctl00_txtsearch"));

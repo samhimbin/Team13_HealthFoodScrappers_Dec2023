@@ -68,8 +68,11 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.17.1</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>com.numpy</groupId>
+			<artifactId>webscraping</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
