@@ -26,18 +26,18 @@ public class LunchHyperthyroidism_Eliminate extends InitClass {
 
 		// write headers in xlsheet
 		try {
-			excelReader.setCellData("HypothyroidismElimination", 0, 0, "Recipe Id");
-			excelReader.setCellData("HypothyroidismElimination", 0, 1, "Recipe Name");
-			excelReader.setCellData("HypothyroidismElimination", 0, 2, "Recipe Category(Breakfast/lunch/snack/dinner)");
-			excelReader.setCellData("HypothyroidismElimination", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
-			excelReader.setCellData("HypothyroidismElimination", 0, 4, "Ingredients");
-			excelReader.setCellData("HypothyroidismElimination", 0, 5, "Preparation Time");
-			excelReader.setCellData("HypothyroidismElimination", 0, 6, "Cooking Time");
-			excelReader.setCellData("HypothyroidismElimination", 0, 7, "Preparation method");
-			excelReader.setCellData("HypothyroidismElimination", 0, 8, "Nutrient values");
-			excelReader.setCellData("HypothyroidismElimination", 0, 9,
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 0, "Recipe Id");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 1, "Recipe Name");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 2, "Recipe Category(Breakfast/lunch/snack/dinner)");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 4, "Ingredients");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 5, "Preparation Time");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 6, "Cooking Time");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 7, "Preparation method");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 8, "Nutrient values");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 9,
 					"Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
-			excelReader.setCellData("HypothyroidismElimination", 0, 10, "Recipe URL");
+			excelReader.setCellData("LunchHypothyroidismElimination", 0, 10, "Recipe URL");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -127,9 +127,9 @@ public class LunchHyperthyroidism_Eliminate extends InitClass {
 					continue;
 				}
 
-				excelReader.setCellData("HypothyroidismElimination", cell, 2, RecipeCategory);
-				excelReader.setCellData("HypothyroidismElimination", cell, 0, recipeId);
-				excelReader.setCellData("HypothyroidismElimination", cell, 1, recipeName);
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 2, RecipeCategory);
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 0, recipeId);
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 1, recipeName);
 
 				List<String> FoodCatList = categoryList.acceptedFoodCategory();
 
@@ -140,17 +140,17 @@ public class LunchHyperthyroidism_Eliminate extends InitClass {
 						System.out.println("Food category Present---------" + foodCategory);
 						foodCatListPresent.add(foodCategory);
 					}
-					excelReader.setCellData("HypothyroidismElimination", cell, 3, foodCatListPresent.toString());
+					excelReader.setCellData("LunchHypothyroidismElimination", cell, 3, foodCatListPresent.toString());
 
 				}
 				foodCatListPresent.clear();
-				excelReader.setCellData("HypothyroidismElimination", cell, 4, ingredients);
-				excelReader.setCellData("HypothyroidismElimination", cell, 5, prepartionTime);
-				excelReader.setCellData("HypothyroidismElimination", cell, 6, cookingTime);
-				excelReader.setCellData("HypothyroidismElimination", cell, 7, preparationMethod);
-				excelReader.setCellData("HypothyroidismElimination", cell, 8, nutrient);
-				excelReader.setCellData("HypothyroidismElimination", cell, 9, "Hypothyroidism");
-				excelReader.setCellData("HypothyroidismElimination", cell, 10, recipeUrl);
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 4, ingredients);
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 5, prepartionTime);
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 6, cookingTime);
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 7, preparationMethod);
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 8, nutrient);
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 9, "Hypothyroidism");
+				excelReader.setCellData("LunchHypothyroidismElimination", cell, 10, recipeUrl);
 
 				// Printing on console
 				System.out.println("Number of tags present: " + tagsSize);

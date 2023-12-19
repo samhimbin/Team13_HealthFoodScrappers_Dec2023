@@ -31,7 +31,7 @@ public class Hypothyroidism extends InitClass {
 	}
 
 	private static List<String> targetMorbidCondition() {
-		return Arrays.asList("Diabetes", "Hypothyroidism", "Hypertension", "hypothyroidism");
+		return Arrays.asList("Diabetes", "Hypothyroidism", "Hypertension", "PCOS");
 	}
 
 
@@ -47,11 +47,7 @@ public void scrapeHypothyroidismRecipe() throws InterruptedException, IOExceptio
 						ArrayList<String> recipeCatListPresent = new ArrayList<String>();
 						ArrayList<String> foodCatListPresent = new ArrayList<String>();
 						ArrayList<String> morbidCondListPresent = new ArrayList<String>();
-						ArrayList<String> eliminationListPresent = new ArrayList<String>();
-						ArrayList<String> additionListPresent = new ArrayList<String>();
-				// declaring variables
-			
-				String prep_Time = null;
+						String prep_Time = null;
 				String ingredients = null;
 				String cook_Time = null;
 				String method = null;
@@ -71,8 +67,7 @@ public void scrapeHypothyroidismRecipe() throws InterruptedException, IOExceptio
 				System.out.println("On hypothyroidism recipes Section");
 				
 				//creating Excel
-				String filePath = ".\\src\\test\\resources\\RecipeTestData.xlsx";
-				
+				String filePath = ".\\src\\test\\resources\\TestData\\MorbidTestData.xlsx";
 				ExcelReader xlUtil = new ExcelReader(filePath);
 				// creating first row of Excel
 				xlUtil.setCellData("hypothyroidism", 0, 0, "RecipeID");
@@ -105,7 +100,7 @@ public void scrapeHypothyroidismRecipe() throws InterruptedException, IOExceptio
 					java.util.List<WebElement> recipes_url = driver.findElements(By.className("rcc_recipename"));
 					int total_cards = recipes_url.size();
 					System.out.println("Total cards =" + total_cards);
-					ArrayList<String> link = new ArrayList<>(24);
+					ArrayList<String> link = new ArrayList<>();
 
 					// Adding all recipe urls in arraylist
 					for (WebElement e : recipes_url) {
@@ -155,7 +150,7 @@ public void scrapeHypothyroidismRecipe() throws InterruptedException, IOExceptio
 						method = method_Element.text();
 						System.out.println("Method =" + method);
 						xlUtil.setCellData("hypothyroidism", PageNumber, 7, method);
-						// Fetching nutrient vaues
+						// Fetching nutrient values
 						Elements nutrient_Element = doc.selectXpath("//div[@id='accompaniments']");
 						nutrientValue = nutrient_Element.text();
 						System.out.println("Nutrient Value=" + nutrientValue);
