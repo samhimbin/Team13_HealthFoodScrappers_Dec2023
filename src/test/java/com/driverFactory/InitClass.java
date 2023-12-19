@@ -12,21 +12,28 @@ import com.Utilities.PropertyReader;
 public class InitClass {
 	// we will give the initialization of web driver + initializing objects
 	public static WebDriver driver;
+<<<<<<< HEAD
 
 
 	// public static Lunch lunch;
 
 
+=======
+		
+>>>>>>> priyanka
 	@BeforeClass
 	public void beforeclass() throws IOException {
 		LoggerLoad.info("Launching WebDriver:");
 		driver = DriverClass.webDriverLaunch();
+<<<<<<< HEAD
 
 	}
 
 	public static void createPageObject() {
 		LoggerLoad.info("Creating Objects:");
 		// All the page objects will be called here
+=======
+>>>>>>> priyanka
 		
 	}
 

@@ -4,6 +4,7 @@
   <test thread-count="5" name="scrapping(failed)">
     <classes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <class name="com.MorbidConditions.PCOSAllergy">
         <methods>
 =======
@@ -22,10 +23,15 @@
       <class name="com.MorbidConditions.HypothyrodismEliminate">
         <methods>
           <include name="scrapeRecipe"/>
+=======
+      <class name="com.MorbidConditions.DiabetesToAdd">
+        <methods>
+>>>>>>> priyanka
           <include name="beforeclass"/>
+          <include name="scrapeDiabeticToAddRecipe"/>
           <include name="beforemethod"/>
-          <include name="afterclass"/>
         </methods>
+<<<<<<< HEAD
       </class> <!-- com.MorbidConditions.HypothyrodismEliminate -->
       <class name="com.RecipeFoodCategory.LunchRecipe_WithfoodCat">
         <methods>
@@ -36,6 +42,9 @@
         </methods>
       </class> <!-- com.RecipeFoodCategory.LunchRecipe_WithfoodCat -->
 >>>>>>> 2d314de73986116c7bfb27eecba74e50e2fc46fd
+=======
+      </class> <!-- com.MorbidConditions.DiabetesToAdd -->
+>>>>>>> priyanka
     </classes>
   </test> <!-- scrapping(failed) -->
 </suite> <!-- Failed suite [Suite] -->
