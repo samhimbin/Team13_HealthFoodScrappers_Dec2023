@@ -1,5 +1,6 @@
 package com.MorbidAllergies;
 
+<<<<<<< HEAD
 
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
@@ -231,3 +232,8 @@ import com.Utilities.*;
 	
 	
 	
+=======
+public class HypertensionAllergy {
+
+}
+>>>>>>> 8f57850daeb46455ee35419cc1edfa14144bf33c
