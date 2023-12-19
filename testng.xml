@@ -4,6 +4,7 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.TestScripts.HomePageValidation"></class>
+      <class name="com.RecipeCategory.Dinner"></class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

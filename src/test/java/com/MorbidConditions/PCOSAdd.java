@@ -17,14 +17,14 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import com.Utilities.ExcelReader;
+import com.Utilities.PropertyReader;
 import com.driverFactory.InitClass;
-import com.TestData.Diabetes_IngredientsCheckList;
 import com.TestData.PCOS_IngredientsCheckList;
 import com.TestData.categoryList;
 
-public class PCOSEliminate extends InitClass {
+public class PCOSAdd extends InitClass {
 	@Test
-	public void scrapeSnacksRecipe() throws InterruptedException, IOException {
+	public void PCOSRecipe() throws InterruptedException, IOException {
 	
 	// declaring variables
 
@@ -59,10 +59,12 @@ public class PCOSEliminate extends InitClass {
 				pcos.click();
 				System.out.println("On PCOS recipes Section");
 				
+				
 				//creating Excel
-				String filePath = ".//src//test//resources//TestData//MorbidTestData.xlsx";
+				String filePath = PropertyReader.getPropFromProperty("config", "excelFilePath")+"MorbidTestData.xlsx";
 				ExcelReader xlUtil = new ExcelReader(filePath);
-				xlUtil.createExcel("PCOS");
+				xlUtil.createExcel("PCOS_Add");
+				System.out.println("Excel created");
 				
 				// Pagination- navigating through all recipe pages
 				int PageNumber=1;// counter to prevent overwriting of data when moving to next page
@@ -120,13 +122,23 @@ public class PCOSEliminate extends InitClass {
 						// Fetching ingredients list
 						Elements ingredient_listElement = doc.selectXpath("//div[@id='rcpinglist']");
 						ingredients = ingredient_listElement.text();
-						String eliminationItems ="";
+						//Checking Elimination list
 						boolean eliminateList = PCOS_IngredientsCheckList.eliminateIngredient(ingredients);
-
 						System.out.println(eliminateList);
 						if (eliminateList) {
 
 							System.out.println("navigate back--> Eliminated Ingredient present--*****************************************************************");
+							driver.navigate().to("https://www.tarladalal.com/recipes-for-pcos-1040?pageindex=" + page);
+							continue;
+							
+						}
+						//Checking To Add List
+						String toAddIngredientName = PCOS_IngredientsCheckList.toAddIngredients(ingredients);
+
+						if (toAddIngredientName == "")
+						{
+							System.out.println(
+									"navigate back--> To add Ingredient not present--*****************************************************************");
 							driver.navigate().to("https://www.tarladalal.com/recipes-for-pcos-1040?pageindex=" + page);
 							continue;
 						}
@@ -168,7 +180,7 @@ public class PCOSEliminate extends InitClass {
 								System.out.println("Recipe category Present---------" + recipeCategory);
 								recipeCatListPresent.add(recipeCategory);
 							}
-							xlUtil.setCellData("PCOS", PageNumber, 2, recipeCatListPresent.toString());
+							xlUtil.setCellData("PCOS_Add", PageNumber, 2, recipeCatListPresent.toString());
 						}
 						recipeCatListPresent.clear();
 						// iterate through tags webElement to capture food category and write in excel
@@ -181,7 +193,7 @@ public class PCOSEliminate extends InitClass {
 								foodCatListPresent.add(foodCategory);
 								FinalFoodCategory=foodCategory.concat(" ").concat(FinalFoodCategory);
 							}
-							xlUtil.setCellData("PCOS", PageNumber, 3, FinalFoodCategory);
+							xlUtil.setCellData("PCOS_Add", PageNumber, 3, FinalFoodCategory);
 						}
 						// iterate through tags webElement to capture morbid condition and write in excel
 						
@@ -192,27 +204,29 @@ public class PCOSEliminate extends InitClass {
 							if (tagsText.contains(tarMorbidCondition)) {
 								System.out.println("Morbid condition Present---------" + tarMorbidCondition);
 								morbidCondListPresent.add(tarMorbidCondition);
-								xlUtil.setCellData("PCOS", PageNumber, 9,
+								xlUtil.setCellData("PCOS_Add", PageNumber, 9,
 										morbidCondListPresent.toString());
 							}
 						}
 						morbidCondListPresent.clear();
 						
 						//Printing all data in excel sheet
-						xlUtil.setCellData("PCOS", PageNumber, 10, URLString);
-						xlUtil.setCellData("PCOS", PageNumber, 0, recipe_id);
-						xlUtil.setCellData("PCOS", PageNumber, 1, recipe_name);
-						xlUtil.setCellData("PCOS", PageNumber, 4, ingredients);
-						xlUtil.setCellData("PCOS", PageNumber, 5, prep_Time);
-						xlUtil.setCellData("PCOS", PageNumber, 6, cook_Time);
-						xlUtil.setCellData("PCOS", PageNumber, 7, method);
-						//xlUtil.setCellData("PCOS", PageNumber, 3, FinalFoodCategory);
+						xlUtil.setCellData("PCOS_Add", PageNumber, 10, URLString);
+						xlUtil.setCellData("PCOS_Add", PageNumber, 0, recipe_id);
+						xlUtil.setCellData("PCOS_Add", PageNumber, 1, recipe_name);
+						xlUtil.setCellData("PCOS_Add", PageNumber, 4, ingredients);
+						xlUtil.setCellData("PCOS_Add", PageNumber, 5, prep_Time);
+						xlUtil.setCellData("PCOS_Add", PageNumber, 6, cook_Time);
+						xlUtil.setCellData("PCOS_Add", PageNumber, 7, method);
+						xlUtil.setCellData("PCOS_Add", PageNumber, 11, toAddIngredientName);
 						
 						counter++;
 						System.out.println("Counter="+counter);
 						PageNumber++;
 						System.out.println("*****************************************************************");
 						driver.navigate().to("https://www.tarladalal.com/recipes-for-pcos-1040?pageindex=" + page);
+						
+						
 					}
 					}
 					System.out.println("Done!!!!");

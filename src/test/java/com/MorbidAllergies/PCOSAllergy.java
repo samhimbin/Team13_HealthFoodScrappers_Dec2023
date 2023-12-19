@@ -1,4 +1,4 @@
-package com.MorbidConditions;
+package com.MorbidAllergies;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -17,14 +17,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import com.Utilities.ExcelReader;
+import com.Utilities.PropertyReader;
 import com.driverFactory.InitClass;
-import com.TestData.Diabetes_IngredientsCheckList;
+
 import com.TestData.PCOS_IngredientsCheckList;
 import com.TestData.categoryList;
 
 public class PCOSAllergy extends InitClass {
 	@Test
-	public void scrapeSnacksRecipe() throws InterruptedException, IOException {
+	public void PCOSRecipe() throws InterruptedException, IOException {
 	
 	// declaring variables
 
@@ -58,20 +59,10 @@ public class PCOSAllergy extends InitClass {
 				System.out.println("On PCOS recipes Section");
 			
 				//creating Excel
-				String filePath = ".//src//test//resources//TestData//MorbidTestData.xlsx";
+				//creating Excel
+				String filePath = PropertyReader.getPropFromProperty("config", "excelFilePath")+"MorbidTestData.xlsx";
 				ExcelReader xlUtil = new ExcelReader(filePath);
-				// creating first row of Excel
-				xlUtil.setCellData("PCOS_Allergy", 0, 0, "RecipeID");
-				xlUtil.setCellData("PCOS_Allergy", 0, 1, "RecipeName");
-				xlUtil.setCellData("PCOS_Allergy", 0, 2, "Recipe Category(Breakfast/lunch/snack/dinner)");
-				xlUtil.setCellData("PCOS_Allergy", 0, 3, "Food Category(Veg/non-veg/vegan/Jain)");
-				xlUtil.setCellData("PCOS_Allergy", 0, 4, "Ingredients");
-				xlUtil.setCellData("PCOS_Allergy", 0, 5, "Preparation Time");
-				xlUtil.setCellData("PCOS_Allergy", 0, 6, "Cooking Time");
-				xlUtil.setCellData("PCOS_Allergy", 0, 7, "Preparation method");
-				xlUtil.setCellData("PCOS_Allergy", 0, 8, "Nutrient values");
-				xlUtil.setCellData("PCOS_Allergy", 0, 9, "Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
-				xlUtil.setCellData("PCOS_Allergy", 0, 10, "Recipe URL");
+				xlUtil.createExcel("PCOS_Add");
 				System.out.println("Excel created");
 				
 				// Pagination- navigating through all recipe pages
@@ -108,7 +99,7 @@ public class PCOSAllergy extends InitClass {
 					int counter = 1; // using this counter to select the excel sheet row number to insert data
 					for (Object each_recipe : link) {
 						System.out.println("Counter =" + counter);
-						Document doc = Jsoup.connect((String) each_recipe).get(); // clicking each recipe
+						Document doc = Jsoup.connect((String) each_recipe).timeout(1000*100).get(); // clicking each recipe
 						// Fetching Recipe URL
 						String URLString = each_recipe.toString();
 						System.out.println("Recipe URL=" + URLString);
